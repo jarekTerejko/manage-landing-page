@@ -320,3 +320,120 @@ body {
     font-weight: 700;
   }
 }
+
+.footer{
+  position: relative;
+  background-color: $veryDarkBlue;
+  padding: 6rem 0;
+
+  &__cols{
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr 270px;
+    column-gap: 1rem;
+    color: $veryLightGray;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    min-height: 11rem;
+    justify-content: space-between;
+
+    
+  }
+
+  &__col:nth-child(3){
+    justify-content: start;
+  }
+  &__col:nth-child(4){
+    align-items: flex-end;
+  }
+
+  &__social-list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__social-item {
+    margin-right: 1.5rem;
+  }
+
+  &__social-link {
+    transition: 0.3s;
+    font-size: 2rem;
+    color: $veryLightGray;
+
+
+    &:hover {
+      color: $brightRed;
+    }
+  }
+
+  &__link {
+    align-self: flex-start;
+    transition: 0.3s;
+    padding: 0.5rem;
+    color: $veryLightGray;
+
+
+    &:hover {
+      color: $brightRed;
+    }
+
+    
+  }
+
+  &__form{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+  }
+
+  &__email-input{
+    height: 100%;
+    width: 100%;
+    border-radius: 2.5rem;
+    border: none;
+    padding: 1rem 1.5rem;
+    border: 1px solid transparent;
+    font-family: "Be Vietnam", sans-serif;
+    font-size: 1.2rem;
+    
+  }
+
+  &__email-input--error{
+    color: $brightRed;
+    border: 1px solid $brightRed;
+  }
+
+  &__email-input::placeholder{
+    color: $darkGrayishBlue;
+    
+  }
+
+  &__email-error{
+    position: absolute;
+    top: 110%;
+    color: $brightRed;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+  }
+
+  &__email-error--success{
+    color: green;
+  }
+
+  &__submit-btn{
+    border: none;
+    cursor: pointer;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+  &__copyright{
+    color: $darkGrayishBlue;
+    font-size: 1.4rem;
+  }
+}
