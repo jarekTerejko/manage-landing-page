@@ -45,3 +45,28 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
   }
 });
+
+const swiper = new Swiper(".swiper-container", {
+  centeredSlides: true,
+  spaceBetween: 30,
+  grabCursor: true,
+  // init: false,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    240: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    770: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+  },
+});
