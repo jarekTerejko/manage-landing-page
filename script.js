@@ -58,15 +58,47 @@ const swiper = new Swiper(".swiper-container", {
   breakpoints: {
     240: {
       slidesPerView: 1,
-      spaceBetween: 20,
+      spaceBetween: 30,
     },
     770: {
       slidesPerView: 2,
-      spaceBetween: 40,
+      spaceBetween: 30,
     },
     1024: {
       slidesPerView: 3,
-      spaceBetween: 50,
+      spaceBetween: 30,
     },
   },
 });
+
+const navTrigger = document.querySelector(".navbar__nav-trigger");
+
+const navTriggerImg = navTrigger.firstElementChild;
+console.log(navTriggerImg);
+
+const navList = document.querySelector(".navbar__nav-list");
+
+const navLinks = document.querySelectorAll(".navbar__nav-link");
+
+const navbar = document.querySelector(".navbar");
+
+navTrigger.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+  navList.classList.toggle("active");
+
+  if (navList.classList.contains("active")) {
+    navTriggerImg.src = "images/icon-close.svg";
+  } else {
+    navTriggerImg.src = "images/icon-hamburger.svg";
+  }
+});
+
+navLinks.forEach(link=> {
+  link.addEventListener('click', ()=> {
+    if(navList.classList.contains('active')){
+      navList.classList.toggle('active')
+      navbar.classList.toggle('active')
+      navTriggerImg.src = "images/icon-hamburger.svg";
+    }
+  })
+})

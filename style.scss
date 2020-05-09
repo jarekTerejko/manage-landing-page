@@ -27,6 +27,7 @@ $veryLightGray: hsl(0, 0%, 98%);
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 img {
@@ -85,13 +86,13 @@ body {
     display: none;
     cursor: pointer;
 
-    @include m-q(750px) {
+    @include m-q(770px) {
       display: inline-block;
       position: fixed;
       right: 2rem;
       &:focus {
-        outline: 1px solid red;
-        outline-offset: 0.5rem;
+        outline: 1px solid $brightRed;
+        outline-offset: 0.3rem;
       }
     }
   }
@@ -100,10 +101,10 @@ body {
     list-style: none;
     display: flex;
 
-    @include m-q(750px) {
+    @include m-q(770px) {
       flex-direction: column;
-      position: absolute;
-      top: 80px;
+      position: fixed;
+      top: 168px;
       width: calc(100% - 4rem);
       text-align: center;
       padding: 2rem 0;
@@ -115,18 +116,11 @@ body {
 
   .navbar__nav-list.active {
     transform: scale(1);
+    background: white;
   }
 
   &__nav-item {
     margin: 0 1rem;
-
-    // &:first-child {
-    //   margin-left: 0;
-    // }
-
-    // &:last-child {
-    //   margin-right: 0;
-    // }
 
     @include m-q(650px) {
       margin: 0.8rem;
@@ -144,12 +138,32 @@ body {
     &:hover {
       color: $darkGrayishBlue;
     }
+
+    @include m-q(770px) {
+      font-weight: 700;
+    }
   }
 
   &__main-btn {
     @include m-q(900px) {
       display: none;
     }
+  }
+}
+
+.navbar.active {
+  &::before {
+    content: "";
+    position: fixed;
+    left: -2rem;
+    right: -2rem;
+    bottom: 0;
+    height: 100vh;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.5)
+    );
   }
 }
 
@@ -376,23 +390,7 @@ body {
 }
 
 .simplify {
-  // position: relative;
-  // z-index: 1;
   width: 100%;
-
-  // &::before{
-  //   content: "";
-  //   position: absolute;
-  //   background-image: url(/images/bg-simplify-section-desktop.svg);
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  //   width: 100vw;
-  //   height: 360px;
-  //   background-repeat: no-repeat;
-  //   z-index: 0;
-  //   top: -140px;
-  //   right: -240px;
-  // }
   background-image: url(/images/bg-simplify-section-desktop.svg);
   background-repeat: no-repeat;
   background-position: 250px -130px;
@@ -454,7 +452,7 @@ body {
       font-size: 3rem;
     }
   }
-  
+
   .testimonial {
     margin: 0 auto;
     background: $veryLightGray;
@@ -529,7 +527,6 @@ body {
 
   &__cols {
     display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-columns: 1fr 1fr 1fr 270px;
     column-gap: 1rem;
     color: $veryLightGray;
