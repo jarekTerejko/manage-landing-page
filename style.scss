@@ -28,6 +28,7 @@ $veryLightGray: hsl(0, 0%, 98%);
 html {
   font-size: 10px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 img {
@@ -90,6 +91,8 @@ body {
       display: inline-block;
       position: fixed;
       right: 2rem;
+      padding: .5rem;
+    background: $brightRed;
       &:focus {
         outline: 1px solid $brightRed;
         outline-offset: 0.3rem;
